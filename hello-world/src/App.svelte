@@ -29,6 +29,8 @@
   const headingId = "heading";
   const id = "heading";
   const disabled = false;
+  const status = ["danger", "success"];
+  const ispromoted = true
 </script>
 
 <main>
@@ -38,6 +40,14 @@
   <h2 id={headingId}>Heading</h2>
   <h2 {id}>Shorthand Attribute Binding (varibale name == attribute name)</h2>
   <button {disabled}>Bind Button</button>
+  <!-- static class -->
+  <h2 class="underline">Static Class</h2>
+  <!-- dynamic classes -->
+  <button class={status[0]}>Cancel</button>
+  <button class={status[1]}>OK</button>
+  <!-- dynamic attribute binding -->
+  <h2 class={ispromoted ? "promoted" : ""}>Title</h2>
+  <h2 class:promoted={ispromoted}>Dynamic Classes</h2>
 </main>
 
 <style>
@@ -53,6 +63,29 @@
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 100;
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+
+  button {
+    color: #fff;
+    border: 0;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+  }
+
+  .danger {
+    background: red;
+  }
+
+  .success {
+    background: green;
+  }
+
+  .promoted {
+    font-style: italic;
   }
 
   @media (min-width: 640px) {
