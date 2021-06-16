@@ -1,4 +1,6 @@
 <script>
+  import { bubble } from "svelte/internal";
+
   const name = "chandan";
   const richName = "<b>chandan</b>";
 
@@ -22,12 +24,20 @@
   <a href="#" onClick="alert('sessionID: ' + localStorage.getItem('sessionID'))">
   Click to Claim Your iPhone XR Pro Max Ultra Lite!
   </a>`;
+
+  // attribute binding
+  const headingId = "heading";
+  const id = "heading";
+  const disabled = false;
 </script>
 
 <main>
   <h1>Hello {name}</h1>
   <h2>{@html richName}</h2>
   <h2>{@html xssHack}</h2>
+  <h2 id={headingId}>Heading</h2>
+  <h2 {id}>Shorthand Attribute Binding (varibale name == attribute name)</h2>
+  <button {disabled}>Bind Button</button>
 </main>
 
 <style>
